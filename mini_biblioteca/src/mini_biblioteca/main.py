@@ -1,6 +1,6 @@
-from mini_biblioteca.src.mini_biblioteca.livros import Livro
-from mini_biblioteca.src.mini_biblioteca.usuarios import Usuario
-from mini_biblioteca.src.mini_biblioteca.emprestimos import Emprestimo, devolver
+from src.mini_biblioteca.livros import Livro
+from src.mini_biblioteca.usuarios import Usuario
+from src.mini_biblioteca.emprestimos import Emprestimo, devolver
 
 
 Angelo = Usuario("angelo","1")

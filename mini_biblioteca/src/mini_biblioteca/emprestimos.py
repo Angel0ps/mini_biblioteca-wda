@@ -1,5 +1,5 @@
-from mini_biblioteca.src.mini_biblioteca.livros import Livro
-from mini_biblioteca.src.mini_biblioteca.usuarios import Usuario
+from src.mini_biblioteca.livros import Livro
+from src.mini_biblioteca.usuarios import Usuario
 
 class Emprestimo(Livro, Usuario):
     
@@ -10,18 +10,15 @@ class Emprestimo(Livro, Usuario):
 
         @property
         def livro(self):
-            return self.livro
+            return self._livro
 
         @livro.setter
-        def livro(self):
-            if isinstance(livro, Livro):
-                if livro.disponivel == False:
-                    raise ValueError
-                else:
-                    livro.disponivel = False
-                    return self.livro
-            else:
-                raise TypeError
+        def livro(self, mlivro:Livro):
+            if not mlivro.disponivel:
+                raise ValueError
+            
+            mlivro.disponivel = False
+            self._livro = mlivro
 
         def devolver(self):
             self.ativo = False
